@@ -16,6 +16,7 @@
 
 package android.support.v7.internal.widget;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -65,6 +66,7 @@ import android.widget.SpinnerAdapter;
 /**
  * @hide
  */
+@SuppressLint("Instantiatable")
 public class ActionBarView extends AbsActionBarView {
 
     private static final String TAG = "ActionBarView";

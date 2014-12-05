@@ -20,6 +20,7 @@ import android.widget.Adapter;
 
 import org.holoeverywhere.util.ReflectHelper;
 
+@SuppressLint("WrongCall")
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public static final int INVALID_POSITION = -1;
     public static final long INVALID_ROW_ID = Long.MIN_VALUE;

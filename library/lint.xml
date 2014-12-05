@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
+    <issue id="DuplicateIds">
+        <ignore path="res/layout/abc_activity_chooser_view.xml" />
+    </issue>
     <issue id="HandlerLeak">
         <ignore path="src/org/holoeverywhere/app/ProgressDialog.java" />
         <ignore path="src/org/holoeverywhere/preference/PreferenceActivity.java" />
@@ -8,10 +11,15 @@
         <ignore path="src/org/holoeverywhere/preference/PreferenceFragment.java" />
         <ignore path="src/org/holoeverywhere/widget/ProgressDialog.java" />
     </issue>
+    <issue id="MissingPrefix" severity="warning" />
+    <issue id="MissingTranslation">
+        <ignore path="res/values/abc_strings.xml" />
+        <ignore path="res/values/dtp_strings.xml" />
+        <ignore path="res/values/rb_strings.xml" />
+    </issue>
     <issue id="NewApi" severity="warning">
         <ignore path="src/org/holoeverywhere/app/AlertDialog.java" />
         <ignore path="src/org/holoeverywhere/app/Dialog.java" />
         <ignore path="src/android/support/v7/internal/view/menu/ContextMenuDecorView.java" />
     </issue>
-    <issue id="MissingPrefix" severity="warning" />
 </lint>
