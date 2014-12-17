@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.database.DataSetObservable;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
@@ -30,6 +29,8 @@ import android.util.Xml;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
+
+import imoblife.android.os.ModernAsyncTask;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -588,7 +589,8 @@ public class ActivityChooserModel extends DataSetObservable {
     }
 
     private void executePersistHistoryAsyncTaskSDK11() {
-        new PersistHistoryAsyncTask().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR,
+    	Log.i(getClass().getSimpleName(), "executePersistHistoryAsyncTaskSDK11");
+        new PersistHistoryAsyncTask().executeOnExecutor(ModernAsyncTask.THREAD_POOL_EXECUTOR,
                 new ArrayList<HistoricalRecord>(mHistoricalRecords), mHistoryFileName);
     }
 
@@ -1046,7 +1048,7 @@ public class ActivityChooserModel extends DataSetObservable {
     /**
      * Command for persisting the historical records to a file off the UI thread.
      */
-    private final class PersistHistoryAsyncTask extends AsyncTask<Object, Void, Void> {
+    private final class PersistHistoryAsyncTask extends ModernAsyncTask<Object, Void, Void> {
 
         @Override
         @SuppressWarnings("unchecked")
