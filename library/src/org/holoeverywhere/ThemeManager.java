@@ -399,11 +399,16 @@ public final class ThemeManager {
     }
 
     public static int getThemeType(Context context) {
-        TypedArray a = context.obtainStyledAttributes(new int[]{
-                R.attr.holoTheme
-        });
-        final int holoTheme = a.getInt(0, 0);
-        a.recycle();
+        int holoTheme = LIGHT;
+        try {
+            TypedArray a = context.obtainStyledAttributes(new int[]{
+                    R.attr.holoTheme
+            });
+            holoTheme = a.getInt(0, 0);
+            a.recycle();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
         switch (holoTheme) {
             case 1:
                 return DARK;
